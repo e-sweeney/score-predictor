@@ -6,6 +6,7 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Load the trained model
+# Comment Code from Murtaza
 model = pickle.load(open("model.pkl", "rb"))
 
 @app.route("/")
