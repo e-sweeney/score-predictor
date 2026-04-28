@@ -15,17 +15,17 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     # Get form data
-    age = float(request.form["age"])
-    sex = 1 if request.form["sex"] == "male" else 0
-    bmi = float(request.form["bmi"])
-    children = int(request.form["children"])
-    smoker = 1 if request.form["smoker"] == "no" else 0
-    region = int(request.form["region"])
+    hrs_Studied = int(request.form["hrs_Studied"])
+    prev_score  = int(request.form["prev_score"])
+    sleep = int(request.form["sleep"])
+    sample_practiced = int(request.form["sample_practiced"])
+    extra_Curr = 1 if request.form["extra_Curr"] == "Yes" else 0
+ 
 
     # Prepare features for prediction
     #features = np.array([[age, sex, bmi, children, smoker, region]])
-    feature_names = ["age", "sex", "bmi", "children", "smoker", "region"]
-    features = pd.DataFrame([[age, sex, bmi, children, smoker, region]], columns=feature_names)
+    feature_names = ["hrs_Studied", "prev_score", "sleep", "sample_practiced", "extra_Curr"]
+    features = pd.DataFrame([[hrs_Studied, prev_score, sleep, sample_practiced,	extra_Curr]],columns=feature_names)
 
     # Predict charges
     prediction = model.predict(features)
@@ -38,4 +38,3 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0')
-
