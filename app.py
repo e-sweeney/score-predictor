@@ -6,7 +6,9 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open("model.pkl", "rb"))
+import os
+model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
+model = pickle.load(open(model_path, "rb"))
 
 @app.route("/")
 def home():
@@ -29,8 +31,7 @@ def predict():
 
     # Predict charges
     prediction = model.predict(features)
-    #  Format to float and 2 decimal places
-    formatted_prediction = f"The predicted value is ${round(float(prediction), 2)}"
+    formatted_prediction = f"The predicted value is {round(prediction[0], 2)}"
 
 
     return render_template("result.html", prediction=formatted_prediction)
