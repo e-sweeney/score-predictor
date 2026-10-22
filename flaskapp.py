@@ -15,15 +15,15 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     # Get form data
-    age = float(request.form["age"])
-    sex = 1 if request.form["sex"] == "male" else 0
-    bmi = float(request.form["bmi"])
-    children = int(request.form["children"])
-    smoker = 1 if request.form["smoker"] == "no" else 0
-    region = int(request.form["region"])
+    age = float(request.form["xxxxxxxxxxxxx"])
+    sex = 1 if request.form["xxxxxxxxxxxxxx"] == "male" else 0
+    bmi = float(request.form["xxxxxxxxxxxxx"])
+    children = int(request.form["xxxxxxxxxxxxxx"])
+    smoker = 1 if request.form["xxxxxxxxxxxxxx"] == "no" else 0
+    region = int(request.form["xxxxxxxxxxxxxxx"])
 
     # Prepare features for prediction
-    #features = np.array([[age, sex, bmi, children, smoker, region]])
+   
     feature_names = ["age", "sex", "bmi", "children", "smoker", "region"]
     features = pd.DataFrame([[age, sex, bmi, children, smoker, region]], columns=feature_names)
 
