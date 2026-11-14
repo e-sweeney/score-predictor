@@ -1,4 +1,5 @@
-# score-predictor
+#Updated by Madeline Villasante for Github collaboration tutorial
+ score-predictor
 The container application image has the following requirements;
 1.  A Dockerfile.
 2.	A working directory called /opt/flask_scorepredictor
